@@ -15,6 +15,7 @@ export default {
         altGray: "var(--gray)",
         magenta: "var(--magenta)",
         altMagenta: "var(--alt-magenta)",
+        altMagentaLight: "var(--alt-magenta-light)",
         altMagentaStrong: "var(--alt-magenta-strong)",
         orange: "var(--orange)",
         altOrange: "var(--alt-orange)",
