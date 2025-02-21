@@ -10,10 +10,30 @@
   --gray: #00000029;
   --magenta: #fb59a2;
   --alt-magenta: #c80b6a;
+  --alt-magenta-strong: #a21059;
   --orange: #fbad28;
   --alt-orange: #ffae7e;
   --alt-blue: #2a3a52;
   --atl-texts: #414042;
+  --gradient-gold: linear-gradient(180deg, #efe597, #a89e51, #8d833b, #4d3d1c);
+  --gradient-orange: linear-gradient(
+    to right,
+    #f670d6,
+    #fb6ec9,
+    #fe6ebd,
+    #ff6fb1,
+    #ff70a6,
+    #ff749d,
+    #ff7994,
+    #ff7f8d,
+    #ff8987,
+    #ff9383,
+    #ff9e80,
+    #fea880
+  );
+
+  --font-poppins: "Poppins", sans-serif;
+  --font-anto: "Anto", sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
