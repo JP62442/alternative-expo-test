@@ -26,12 +26,10 @@ export const metadata: Metadata = {
     description: "Created By Juan Pablo Cardona Duque",
     url: "https://altproexpo.com",
     type: "website",
-    images: [
-      "https://altproexpo.com/wp-content/uploads/2021/07/cropped-favicon-150x150.png",
-    ],
+    images: ["icons/general/favicon-150x150.png"],
   },
   icons: {
-    icon: "https://altproexpo.com/wp-content/uploads/2021/07/cropped-favicon-150x150.png",
+    icon: "icons/general/favicon-150x150.png",
   },
   robots: {
     index: true,
@@ -59,10 +57,7 @@ export default function RootLayout({
           property="og:description"
           content="Created By Juan Pablo Cardona Duque"
         />
-        <meta
-          property="og:image"
-          content="https://altproexpo.com/wp-content/uploads/2021/07/cropped-favicon-150x150.png"
-        />
+        <meta property="og:image" content="icons/general/favicon-150x150.png" />
         <meta property="og:url" content="https://altproexpo.com" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_US" />
