@@ -4,7 +4,7 @@ import { forwardRef } from "react";
 const AboutSection = forwardRef<
   HTMLDivElement,
   { videoRef: React.Ref<HTMLDivElement> }
->(function AboutSection({ videoRef }, ref) {
+>(function AboutSection({ videoRef }) {
   return (
     <section className="relative text-white pt-16 pb-0 px-4 z-20">
       <div className="mx-auto max-w-5xl">
