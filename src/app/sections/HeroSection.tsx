@@ -70,8 +70,8 @@ export default function HeroSection() {
             font-bold uppercase text-white
             leading-[1]
             md:leading-[1.2]
-            mx-auto // Centra el texto en mobile
-            md:mx-0 // Quita centrado en desktop
+            mx-auto
+            md:mx-0
           "
           >
             <span className="block">EXCELLENCE</span>
