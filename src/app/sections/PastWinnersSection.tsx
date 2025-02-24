@@ -1,16 +1,43 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import MainBtn from "@/components/buttons/mainBtn/MainBtn";
-import { eventsData } from "@/data/PastWinners";
+import { useWinners } from "@/hooks/useWinners";
+import Link from "next/link";
 
 export default function PastWinnersSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const winnersData = useWinners();
+  const [openIndex, setOpenIndex] = useState<number>(0);
+  const [currentCategoryIndex, setCurrentCategoryIndex] = useState<number>(0);
+
+  useEffect(() => {
+    if (winnersData.length > 0) {
+      setOpenIndex(0);
+      setCurrentCategoryIndex(0);
+    }
+  }, [winnersData]);
+
+  if (winnersData.length === 0) {
+    return <p className="text-white text-center">Whitout data now.</p>;
+  }
 
   function handleToggle(index: number) {
     setOpenIndex(index);
+    setCurrentCategoryIndex(0);
   }
+
+  function handleNextCategory() {
+    setCurrentCategoryIndex((prevIndex) => {
+      const nextIndex = prevIndex + 1;
+      return nextIndex < winnersData[openIndex].categories.length
+        ? nextIndex
+        : 0;
+    });
+  }
+
+  const currentCategory =
+    winnersData[openIndex].categories[currentCategoryIndex];
 
   return (
     <section className="text-white py-16 px-4">
@@ -21,96 +48,83 @@ export default function PastWinnersSection() {
 
         <div className="flex items-center justify-center mt-2">
           <div className="h-[2px] w-16 bg-gradientGold" />
-          <span
-            className="
-              inline-block
-              mx-2
-              text-transparent
-              bg-clip-text
-              bg-gradientGold
-              text-lg
-              md:text-xl
-              font-bold
-              uppercase
-            "
-          >
-            HOUSTON 2024
+          <span className="inline-block mx-2 text-transparent bg-clip-text bg-gradientGold text-lg md:text-xl font-bold uppercase">
+            {winnersData[openIndex].event_name}
           </span>
           <div className="h-[2px] w-16 bg-gradientGold" />
         </div>
       </div>
 
-      <div
-        className="
-          mx-auto max-w-5xl
-          mt-12
-          p-6
-          bg-white/10
-          backdrop-blur-sm
-          rounded-[25px]
-          flex
-          flex-col
-          md:flex-row
-          items-center
-          gap-8
-          bg-[url('/images/general/pinksmoke-bg.png')]
-          bg-no-repeat
-          bg-cover
-          bg-center
-        "
-      >
-        <div className="w-full md:w-1/2">
+      {/* Winner Card */}
+      <div className="mx-auto max-w-5xl mt-12 p-6 bg-white/10 backdrop-blur-sm rounded-[25px] flex flex-col md:flex-row items-center gap-16 bg-[url('/images/general/pinksmoke-bg.png')] bg-no-repeat bg-cover bg-center relative">
+        <div className="w-full md:w-1/2 flex justify-center relative">
           <Image
-            src="/images/dataimage.png"
-            alt="Data product"
+            src={currentCategory.image_url ?? "/images/companies/vapes.png"}
+            alt={currentCategory.winner_name}
             width={500}
             height={300}
-            className="rounded-md object-cover w-full h-auto"
+            className="rounded-md object-cover w-[500px] h-[300px]"
           />
+
+          <div className="absolute top-[-10%] md:top-[20%] md:left-[90%] lg:left-[90%] w-[90px] h-[90px] bg-white rounded-full flex items-center justify-center shadow-lg">
+            <Image
+              src={currentCategory.logo_url ?? "/images/companies/lost8s.png"}
+              alt={`${currentCategory.winner_name} Logo`}
+              width={80}
+              height={80}
+              className="rounded-full object-contain w-[70px] h-[70px]"
+            />
+          </div>
         </div>
 
         <div className="w-full md:w-1/2 text-center md:text-left">
           <h3 className="text-2xl md:text-3xl font-extra-bold uppercase leading-tight">
-            BEST <br />
-            ALTERNATIVE <br />
-            PRODUCT
+            {currentCategory.category_name}
           </h3>
-          <p className="text-xl mt-2">Data</p>
+          <p className="text-xl mt-2">{currentCategory.winner_name}</p>
 
           <div className="mt-6 flex flex-col md:flex-row gap-4 justify-center md:justify-start">
-            <MainBtn variant="gold">VIEW WINNER</MainBtn>
-            <MainBtn className="text-white" variant="outline">
+            <Link
+              scroll={false}
+              target="_blank"
+              href={currentCategory.product_url ?? "#"}
+            >
+              <MainBtn variant="gold">VIEW WINNER</MainBtn>
+            </Link>
+            <MainBtn
+              className="text-white"
+              variant="outline"
+              onClick={handleNextCategory}
+            >
               SEE NEXT CATEGORY
             </MainBtn>
           </div>
         </div>
       </div>
 
-      {/* Events Accordion */}
       <div className="mx-auto max-w-5xl mt-12 flex flex-col md:flex-row gap-8">
         <div className="w-full md:w-1/3">
-          {eventsData.map((event, index) => {
+          {winnersData.map((event, index) => {
             const isOpen = openIndex === index;
             return (
               <button
-                key={event.name}
+                key={event.event_name + event.year}
                 onClick={() => handleToggle(index)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    handleToggle(index);
-                  }
-                }}
-                className={`
-                  h-[60px]
-                  w-full
-                  mb-2 p-4 rounded-lg
-                  flex items-center justify-between
-                  cursor-pointer
-                  transition-colors
-                  ${isOpen ? "bg-[#A89E51]" : "bg-white/10 bg-opacity-10"}
-                `}
+                className={`h-[60px] w-full mb-2 p-4 rounded-lg flex items-center justify-between cursor-pointer transition-colors ${
+                  isOpen ? "bg-[#A89E51]" : ""
+                }`}
+                style={
+                  !isOpen
+                    ? {
+                        background:
+                          "linear-gradient(to right, #4c2142, #522747, #572d4c, #5d3352, #633957)",
+                      }
+                    : {}
+                }
               >
-                <span className="font-bold uppercase">{event.name}</span>
+                <span className="font-bold uppercase">
+                  {event.event_name + " " + event.year}
+                </span>
                 <span className="text-2xl font-bold">{isOpen ? "-" : "+"}</span>
               </button>
             );
@@ -120,25 +134,17 @@ export default function PastWinnersSection() {
         <div className="w-full md:w-2/3">
           {openIndex != null && (
             <div className="space-y-2">
-              {eventsData[openIndex].categories.map((cat) => (
+              {winnersData[openIndex].categories.map((cat, index) => (
                 <div
-                  key={cat.categoryName}
-                  className="
-                    grid
-                    grid-cols-2
-                    items-center
-                    text-center
-                    gap-x-4
-                    text-sm
-                    md:text-base
-                    p-2
-                    rounded
-                  "
+                  key={cat.category_name + cat.winner_name}
+                  className={`grid grid-cols-2 items-center text-center gap-x-4 text-sm md:text-base p-2 rounded ${
+                    index === currentCategoryIndex ? "bg-white/5" : ""
+                  }`}
                 >
                   <span className="font-semibold text-end">
-                    {cat.categoryName}
+                    {cat.category_name}
                   </span>
-                  <span className="text-start">{cat.winner}</span>
+                  <span className="text-start">{cat.winner_name}</span>
                 </div>
               ))}
             </div>
