@@ -11,7 +11,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const baseStyles = `
-  min-w-[164px]
+  min-w-[174px]
   h-[60px]
   inline-flex items-center justify-center
   rounded-[100px]
@@ -20,6 +20,7 @@ const baseStyles = `
   focus:outline-none focus:ring-2 focus:ring-offset-2
   transition-colors
   disabled:opacity-50
+  cursor-pointer
 `;
 
 const variantStyles: Record<ButtonVariant, string> = {
@@ -30,14 +31,14 @@ const variantStyles: Record<ButtonVariant, string> = {
     focus:ring-pink-500
   `,
   primaryHover: `
-  bg-pink-600
+  bg-altMagenta
   text-white
   border border-transparent
   focus:ring-pink-500
 
-  hover:bg-white
-  hover:text-pink-600
-  hover:border-pink-600
+  hover:bg-transparent
+  hover:text-altMagenta
+  hover:border-altMagenta
   focus:ring-pink-500
   `,
   secondary: `
@@ -50,10 +51,9 @@ const variantStyles: Record<ButtonVariant, string> = {
     bg-gradientGold
   `,
   outline: `
-    border border-gray-300
+    border-2
+    border-gray-300
     text-gray-700
-    hover:bg-gray-50
-    focus:ring-gray-300
   `,
   gradientOrange: `
     text-white
