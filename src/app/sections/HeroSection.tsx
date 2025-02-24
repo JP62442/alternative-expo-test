@@ -39,13 +39,13 @@ export default function HeroSection() {
       </div>
 
       <div
-        className="flex-1 relative z-10 container mx-auto px-4 flex 
-        flex-col 
-        justify-start  // Alinea contenido arriba en mobile
-        md:justify-center // Centra vertical en desktop
-        items-center // Centra horizontal en mobile
-        md:items-start // Alinea a la izquierda en desktop
-        text-center // Texto centrado en mobile
+        className="flex-1 relative z-10 container mx-auto px-4 flex
+        flex-col
+        justify-start
+        md:justify-center
+        items-center
+        md:items-start
+        text-center
         md:text-left"
       >
         {" "}
