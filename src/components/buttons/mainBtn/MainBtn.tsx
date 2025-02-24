@@ -16,7 +16,7 @@ const baseStyles = `
   inline-flex items-center justify-center
   rounded-[100px]
   px-4 py-2
-  font-medium
+  font-semibold
   focus:outline-none focus:ring-2 focus:ring-offset-2
   transition-colors
   disabled:opacity-50

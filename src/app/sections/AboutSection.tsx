@@ -13,7 +13,7 @@ const AboutSection = forwardRef<
             ABOUT
           </h2>
 
-          <p className="text-sm md:text-base leading-relaxed mt-4">
+          <p className="font-medium text-sm md:text-base leading-relaxed mt-4">
             The Alt Pro Expo Excellence Awards are a prestigious recognition
             within the alternative products industry, celebrating the most
             innovative, high-quality, and impactful brands, products, and

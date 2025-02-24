@@ -78,10 +78,12 @@ export default function PastWinnersSection() {
         </div>
 
         <div className="w-full md:w-1/2 text-center md:text-left">
-          <h3 className="text-2xl md:text-3xl font-extra-bold uppercase leading-tight">
+          <h3 className="text-2xl md:text-3xl font-black uppercase leading-tight">
             {currentCategory.category_name}
           </h3>
-          <p className="text-xl mt-2">{currentCategory.winner_name}</p>
+          <p className="font-medium text-xl mt-2">
+            {currentCategory.winner_name}
+          </p>
 
           <div className="mt-6 flex flex-col md:flex-row gap-4 justify-center md:justify-start">
             <Link
@@ -110,7 +112,7 @@ export default function PastWinnersSection() {
               <button
                 key={event.event_name + event.year}
                 onClick={() => handleToggle(index)}
-                className={`h-[60px] w-full mb-2 p-4 rounded-lg flex items-center justify-between cursor-pointer transition-colors ${
+                className={`font-extrabold h-[60px] w-full mb-2 p-4 rounded-lg flex items-center justify-between cursor-pointer transition-colors ${
                   isOpen ? "bg-[#A89E51]" : ""
                 }`}
                 style={
@@ -122,10 +124,10 @@ export default function PastWinnersSection() {
                     : {}
                 }
               >
-                <span className="font-bold uppercase">
+                <span className=" uppercase">
                   {event.event_name + " " + event.year}
                 </span>
-                <span className="text-2xl font-bold">{isOpen ? "-" : "+"}</span>
+                <span className="text-2xl">{isOpen ? "-" : "+"}</span>
               </button>
             );
           })}
@@ -141,10 +143,12 @@ export default function PastWinnersSection() {
                     index === currentCategoryIndex ? "bg-white/5" : ""
                   }`}
                 >
-                  <span className="font-semibold text-end">
+                  <span className="font-extrabold text-end">
                     {cat.category_name}
                   </span>
-                  <span className="text-start">{cat.winner_name}</span>
+                  <span className="font-medium text-start">
+                    {cat.winner_name}
+                  </span>
                 </div>
               ))}
             </div>

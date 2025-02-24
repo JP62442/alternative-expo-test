@@ -34,10 +34,12 @@ const FeatureCard: FC<FeatureCardProps> = ({
       "
     >
       <div>
-        <h3 className="text-2xl font-bold mb-2 uppercase tracking-wide">
+        <h3 className="text-2xl font-extrabold mb-2 uppercase tracking-wide">
           {title}
         </h3>
-        <p className="text-sm leading-relaxed mb-4">{description}</p>
+        <p className="font-medium text-sm leading-relaxed mb-4">
+          {description}
+        </p>
       </div>
 
       <div className="flex items-center justify-between">

@@ -96,7 +96,7 @@ export default function CategoriesSection({
                   height={48}
                   className="mb-2"
                 />
-                <p className="text-sm md:text-base max-w-[140px]">
+                <p className="font-bold text-sm md:text-base max-w-[140px]">
                   {cat.label}
                 </p>
               </div>
