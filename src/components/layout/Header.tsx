@@ -119,9 +119,9 @@ export default function Header() {
             </Link>
             <Link
               href="#register"
-              className="block w-full rounded bg-pink-600 px-4 py-2 text-center text-sm font-semibold text-white hover:bg-pink-700"
+              className="block w-full px-4 py-2 text-center text-sm font-semibold text-white hover:bg-pink-700"
             >
-              Register
+              <MainBtn variant="primaryHover">REGISTER</MainBtn>
             </Link>
           </div>
         </nav>

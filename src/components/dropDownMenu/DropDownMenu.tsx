@@ -85,7 +85,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ label, items }) => {
           className="
             absolute left-0 top-full
             w-48
-            bg-pink-600
+            bg-altMagenta
             text-white
             shadow-lg
             overflow-hidden
