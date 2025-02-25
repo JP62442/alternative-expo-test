@@ -7,6 +7,8 @@ import MainBtn from "../buttons/mainBtn/MainBtn";
 import DropdownMenu from "../dropdownMenu/DropdownMenu";
 import MobileDropdownMenu from "../dropdownMenu/MobileDropdownMenu";
 import { menuData } from "@/data/menudata";
+import { SubMenuDesktop } from "../submenu/SubMenuDesktop";
+import { SubMenuMobile } from "../submenu/SubMenuMobile";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -111,66 +113,11 @@ export default function Header() {
           </div>
         </div>
       )}
-
-      <div
-        className="
-          relative
-          hidden
-          md:block
-          border-t border-gray-200
-          bg-altMagenta
-          opacity-80
-          backdrop-blur-[30px]
-          backdrop-brightness-[1.15]
-          -z-10
-        "
-      >
-        <div className="mx-auto flex max-w-7xl items-center justify-center px-4 py-2 text-white sm:px-6 lg:px-8">
-          <div className="flex items-center space-x-6">
-            <Link
-              href="#navigate-page"
-              className="text-sm font-medium hover:text-pink-200"
-            >
-              NAVIGATE THIS PAGE
-            </Link>
-            <Link
-              href="#nominate"
-              className="text-sm font-medium hover:text-pink-200"
-            >
-              NOMINATE
-            </Link>
-            <Link
-              href="#vote"
-              className="text-sm font-medium hover:text-pink-200"
-            >
-              VOTE
-            </Link>
-            <Link
-              href="#about"
-              className="text-sm font-medium hover:text-pink-200"
-            >
-              ABOUT
-            </Link>
-            <Link
-              href="#categories"
-              className="text-sm font-medium hover:text-pink-200"
-            >
-              CATEGORIES
-            </Link>
-            <Link
-              href="#past-winners"
-              className="text-sm font-medium hover:text-pink-200"
-            >
-              PAST WINNERS
-            </Link>
-            <Link
-              href="#testimonials"
-              className="text-sm font-medium hover:text-pink-200"
-            >
-              TESTIMONIALS
-            </Link>
-          </div>
-        </div>
+      <div className="relative hidden md:block border-t border-gray-200 bg-altMagenta opacity-80 backdrop-blur-[30px] backdrop-brightness-[1.15] -z-10">
+        <SubMenuDesktop />
+      </div>
+      <div className="relative md:hidden border-t border-gray-200 bg-altMagenta opacity-80 backdrop-blur-[30px] backdrop-brightness-[1.15]">
+        <SubMenuMobile />
       </div>
     </header>
   );

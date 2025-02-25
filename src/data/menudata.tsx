@@ -56,3 +56,13 @@ export const menuData = [
     ],
   },
 ];
+
+export const subMenuLinks = [
+  { id: "navigate-page", label: "NAVIGATE THIS PAGE", smooth: true },
+  { id: "nominate", label: "NOMINATE" },
+  { id: "vote", label: "VOTE" },
+  { id: "about", label: "ABOUT" },
+  { id: "categories", label: "CATEGORIES" },
+  { id: "past-winners", label: "PAST WINNERS" },
+  { id: "testimonials", label: "TESTIMONIALS" },
+];

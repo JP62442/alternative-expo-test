@@ -8,18 +8,11 @@ export default function SubscribeForm() {
         <h2 className="font-bold text-xl md:text-2xl uppercase text-altBlue">
           SUBSCRIBE FOR UPDATES
         </h2>
-
-        <div className="flex-1 flex items-center bg-gray-100 rounded-full px-4 py-2">
+        <div className="flex-1 flex items-center bg-gray-100 rounded-full p-3 pl-5">
           <input
             type="email"
             placeholder="Email address*"
-            className="
-              flex-grow
-              bg-transparent
-              outline-none
-              text-sm
-              placeholder-gray-500
-            "
+            className="font-semibold flex-grow bg-transparent outline-none text-sm placeholder-gray-500 text-altBlue pl-2"
           />
           <MainBtn variant="gradientOrange" className="text-sm">
             GET TICKETS
