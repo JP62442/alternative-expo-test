@@ -98,7 +98,9 @@ export default function PastWinnersSection() {
 
           <div className="absolute top-[-10%] md:top-[20%] md:left-[90%] lg:left-[90%] w-[100px] h-[100px] bg-white rounded-full flex items-center justify-center shadow-lg">
             <Image
-              src={currentCategory.logo_url ?? "/images/companies/lost8s.png"}
+              src={
+                currentCategory.logo_url ?? "/images/general/logo-default.png"
+              }
               alt={`${currentCategory.winner_name} Logo`}
               width={100}
               height={100}
