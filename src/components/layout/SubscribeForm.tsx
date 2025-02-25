@@ -11,11 +11,13 @@ export default function SubscribeForm() {
 
   return (
     <section className="py-8 px-4 bg-white">
-      <div className="mx-auto max-w-5xl flex flex-col md:flex-row items-center gap-6">
-        <h2 className="font-bold text-xl md:text-2xl uppercase text-altBlue">
-          SUBSCRIBE FOR UPDATES
+      <div className="mx-auto max-w-7xl flex flex-col md:flex-row items-center gap-6">
+        <h2 className="font-anton text-xl md:text-4xl uppercase text-altBlue text-center md:text-left">
+          SUBSCRIBE <br /> FOR UPDATES
         </h2>
-        <div className="flex-1 flex items-center bg-gray-100 rounded-full p-3 pl-5">
+
+        {/* Desktop */}
+        <div className="hidden md:flex items-center bg-gray-100 rounded-full p-3 pl-5 flex-1">
           <input
             type="email"
             placeholder="Email address*"
@@ -30,6 +32,28 @@ export default function SubscribeForm() {
           >
             GET TICKETS
           </MainBtn>
+        </div>
+
+        {/* Mobile */}
+        <div className="md:hidden w-full flex flex-col gap-3">
+          <div className="bg-gray-100 rounded-full p-3 pl-5">
+            <input
+              type="email"
+              placeholder="Email address*"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="font-semibold w-full bg-transparent outline-none text-sm placeholder-gray-500 text-altBlue pl-2"
+            />
+          </div>
+          <div className="flex justify-center">
+            <MainBtn
+              variant="gradientOrange"
+              className="text-sm"
+              onClick={handleSubmit}
+            >
+              GET TICKETS
+            </MainBtn>
+          </div>
         </div>
       </div>
     </section>
