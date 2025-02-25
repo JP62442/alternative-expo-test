@@ -9,7 +9,8 @@ type FeatureCardProps = {
   description: string;
   buttonLabel: string;
   buttonVariant?: ButtonVariant;
-  onButtonClick?: () => void;
+  onClick?: () => void;
+  showArrow?: boolean;
 };
 
 const FeatureCard: FC<FeatureCardProps> = ({
@@ -17,38 +18,49 @@ const FeatureCard: FC<FeatureCardProps> = ({
   description,
   buttonLabel,
   buttonVariant,
-  onButtonClick,
+  onClick,
+  showArrow = true,
 }) => {
   return (
     <div
       className="
-        bg-white/10
-        backdrop-blur-sm
-        border border-white/20
-        rounded-[29px]
-        pt-16 pr-8 pb-16 pl-11
+        bg-white/5
+        backdrop-blur-lg
+        border border-white/15
+        rounded-[24px]
+        p-8 md:p-12
         text-white
         flex flex-col
         justify-between
-        shadow-md
+        shadow-xl
+        transition-transform duration-300 hover:scale-[1.02]
+        relative
       "
     >
       <div>
-        <h3 className="text-2xl font-bold mb-2 uppercase tracking-wide">
+        <h3 className="text-2xl font-extrabold mb-3 uppercase tracking-wide">
           {title}
         </h3>
-        <p className="text-sm leading-relaxed mb-4">{description}</p>
+        <p className="font-medium text-sm leading-relaxed opacity-80">
+          {description}
+        </p>
       </div>
 
-      <div className="flex items-center justify-between">
-        <MainBtn variant={buttonVariant ?? "primary"} onClick={onButtonClick}>
+      <div className="mt-6">
+        <MainBtn variant={buttonVariant ?? "primary"} onClick={onClick}>
           {buttonLabel}
         </MainBtn>
+      </div>
 
-        <div className="ml-4 w-10 h-10 rounded-full border border-white flex items-center justify-center cursor-pointer">
+      {showArrow && (
+        <button
+          className="absolute bottom-4 right-4 w-12 h-12 rounded-full border border-white/30 flex items-center justify-center cursor-pointer transition-all duration-300 hover:bg-white/70 hover:text-black"
+          onClick={onClick}
+          aria-label="Arrow Button"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4 text-white"
+            className="h-5 w-5 text-white transition-all duration-300 hover:text-black"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -60,8 +72,8 @@ const FeatureCard: FC<FeatureCardProps> = ({
               d="M9 5l7 7-7 7"
             />
           </svg>
-        </div>
-      </div>
+        </button>
+      )}
     </div>
   );
 };

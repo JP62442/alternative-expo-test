@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import FeatureCard from "@/components/cards/featureCard/FeatureCard";
 import { ButtonVariant } from "@/types/types";
 
@@ -8,9 +9,19 @@ type CardData = {
   description: string;
   buttonLabel: string;
   buttonVariant?: ButtonVariant;
+  onClick?: () => void;
+  showArrow?: boolean;
 };
 
-export default function CardsSection() {
+type CardsSectionProps = {
+  readonly scrollToPastWinners: () => void;
+};
+
+export default function CardsSection({
+  scrollToPastWinners,
+}: CardsSectionProps) {
+  const router = useRouter();
+
   const cardsData: CardData[] = [
     {
       title: "NOMINATE",
@@ -18,18 +29,26 @@ export default function CardsSection() {
         "It all starts with a nomination. Simply pick your favorite brand from the list and make them eligible to win an award!",
       buttonLabel: "NOMINATE NOW",
       buttonVariant: "gold",
+      onClick: () => {
+        router.push("/nominate");
+      },
     },
     {
       title: "VOTE",
       description:
         "Your vote decides the winners. There are no judges, the nominee with the most valid votes takes home the trophy!",
       buttonLabel: "VOTE NOW",
+      onClick: () => {
+        router.push("/vote");
+      },
     },
     {
       title: "PAST WINNERS",
       description:
         "Discover award winning brands. See the winners from past events and relive the moment.",
       buttonLabel: "SEE PAST WINNERS",
+      onClick: scrollToPastWinners,
+      showArrow: false,
     },
   ];
 
@@ -43,7 +62,8 @@ export default function CardsSection() {
             description={card.description}
             buttonLabel={card.buttonLabel}
             buttonVariant={card.buttonVariant}
-            onButtonClick={() => console.log(`Clicked: ${card.title}`)}
+            onClick={card.onClick}
+            showArrow={card.showArrow}
           />
         ))}
       </div>

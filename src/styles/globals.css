@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --alt-background: #0e151f;
+  --alt-background: #0f151d;
   --alt-foreground: #171717;
 
   --white: #ffffff;
@@ -67,4 +67,19 @@ body {
   .footer-link:hover::after {
     transform: scaleX(1);
   }
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  color: white !important;
+}
+.swiper-button-next:hover::after,
+.swiper-button-prev:hover::after {
+  transform: scale(1.2);
+  opacity: 0.8;
+}
+
+.swiper-button-next:active::after,
+.swiper-button-prev:active::after {
+  transform: scale(0.9);
 }

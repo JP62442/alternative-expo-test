@@ -4,16 +4,16 @@ import { forwardRef } from "react";
 const AboutSection = forwardRef<
   HTMLDivElement,
   { videoRef: React.Ref<HTMLDivElement> }
->(function AboutSection({ videoRef }) {
+>(function AboutSection({ videoRef }, ref) {
   return (
-    <section className="relative text-white pt-16 pb-0 px-4 z-20">
+    <section ref={ref} className="relative text-white pt-16 pb-0 px-4 z-20">
       <div className="mx-auto max-w-5xl">
         <div className="flex items-center justify-center mb-8">
           <h2 className="font-anton -rotate-90 text-3xl md:text-4xl font-bold uppercase">
             ABOUT
           </h2>
 
-          <p className="text-sm md:text-base leading-relaxed mt-4">
+          <p className="font-medium text-sm md:text-base leading-relaxed mt-4">
             The Alt Pro Expo Excellence Awards are a prestigious recognition
             within the alternative products industry, celebrating the most
             innovative, high-quality, and impactful brands, products, and

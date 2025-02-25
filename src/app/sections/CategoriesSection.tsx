@@ -1,6 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
 
 interface CategoriesSectionProps {
   readonly halfVideoHeight: number;
@@ -72,13 +76,8 @@ export default function CategoriesSection({
       <div className="mx-auto max-w-7xl">
         <div
           className="
-            border
-            border-white/20
-            bg-white/5
-            backdrop-blur-sm
-            rounded-[29px]
-            p-8
-            text-center
+            border border-white/20 bg-white/5 backdrop-blur-sm
+            rounded-[29px] p-8 text-center
           "
           style={{ paddingTop: halfVideoHeight * 1.25 }}
         >
@@ -86,17 +85,52 @@ export default function CategoriesSection({
             CATEGORIES
           </h2>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
+          <div className="block lg:hidden">
+            <Swiper
+              slidesPerView={2}
+              spaceBetween={10}
+              navigation
+              breakpoints={{
+                640: { slidesPerView: 3 },
+                768: { slidesPerView: 4 },
+              }}
+              modules={[Navigation]}
+              className="w-full"
+            >
+              {categories.map((cat) => (
+                <SwiperSlide
+                  key={cat.label}
+                  className="!flex flex-col items-center text-center"
+                >
+                  <Image
+                    src={cat.icon}
+                    alt={cat.label}
+                    width={88}
+                    height={88}
+                    className="mb-2"
+                  />
+                  <p className="font-bold text-sm md:text-base max-w-[140px]">
+                    {cat.label}
+                  </p>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+
+          <div className="hidden lg:grid grid-cols-6 gap-6 mt-4">
             {categories.map((cat) => (
-              <div key={cat.label} className="flex flex-col items-center">
+              <div
+                key={cat.label}
+                className="flex flex-col items-center text-center"
+              >
                 <Image
                   src={cat.icon}
                   alt={cat.label}
-                  width={48}
-                  height={48}
+                  width={88}
+                  height={88}
                   className="mb-2"
                 />
-                <p className="text-sm md:text-base max-w-[140px]">
+                <p className="font-bold text-sm md:text-base max-w-[140px]">
                   {cat.label}
                 </p>
               </div>
