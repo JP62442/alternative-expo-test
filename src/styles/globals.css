@@ -83,3 +83,13 @@ body {
 .swiper-button-prev:active::after {
   transform: scale(0.9);
 }
+
+.swiper-pagination {
+  position: static !important;
+  margin-top: 1rem !important;
+  text-align: center !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--alt-blue) !important;
+}
