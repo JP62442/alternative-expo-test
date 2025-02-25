@@ -22,7 +22,7 @@ export default function Testimonials() {
     },
     {
       id: "2",
-      logo: "/images/companies/lost8s.png",
+      logo: "/images/companies/mellow-fellow.jpeg",
       quote: `“Lorem ipsum dolor sit amet, consectetur sadipscing elitr,
       sed diam nonumy eirmod tempor invidunt ut labore et
       dolore magna aliquyam erat, sed diam voluptua. At
@@ -39,7 +39,7 @@ export default function Testimonials() {
     },
     {
       id: "4",
-      logo: "/images/companies/lost8s.png",
+      logo: "/images/companies/mellow-fellow.jpeg",
       quote: `“Lorem ipsum dolor sit amet, consectetur sadipscing elitr,
       sed diam nonumy eirmod tempor invidunt ut labore et
       dolore magna aliquyam erat, sed diam voluptua.”`,
