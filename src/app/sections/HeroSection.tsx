@@ -28,7 +28,7 @@ export default function HeroSection() {
         />
       </div>
 
-      <div className="absolute top-6 left-6 z-20 md:top-8 md:left-8 hidden md:block">
+      <div className="w-[120px] md:w-[160px] absolute top-6 left-6 z-20 md:top-8 md:left-8 block">
         <Image
           src={excellenceAwards}
           alt="Alt Pro Expo Excellence Awards"
@@ -48,25 +48,18 @@ export default function HeroSection() {
         text-center
         md:text-left"
       >
-        {" "}
-        <div className="mt-20 md:mt-0 md:-mt-16">
-          {" "}
-          <span
-            className="block text-transparent bg-clip-text
-            bg-gradientGold
-            text-[19px]
-            md:text-xl lg:text-[22px]
-            font-bold uppercase tracking-[0.25em]
-            mb-2
-            md:ml-[2px]
-          "
-          >
-            ALT PRO EXPO
-          </span>
+        <div className="mt-36 md:mt-0 md:-mt-16 xl:ml-40">
+          <Image
+            src={"images/general/Trazado-5657.svg"}
+            alt="Excellence Awards"
+            width={250}
+            height={250}
+            className="mb-2"
+          />
           <h1
             className="font-anton
             text-[56px]
-            md:text-7xl lg:text-[104px]
+            md:text-8xl xl:text-[120px]
             font-bold uppercase text-white
             leading-[1]
             md:leading-[1.2]

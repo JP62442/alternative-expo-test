@@ -13,7 +13,7 @@ export default function Testimonials() {
   const testimonials: Testimonial[] = [
     {
       id: "1",
-      logo: "/images/lost8s.png",
+      logo: "/images/companies/lost8s.png",
       quote: `“Lorem ipsum dolor sit amet, consectetur sadipscing elitr,
       sed diam nonumy eirmod tempor invidunt ut labore et
       dolore magna aliquyam erat, sed diam voluptua. At
@@ -22,7 +22,7 @@ export default function Testimonials() {
     },
     {
       id: "2",
-      logo: "/images/lost8s.png",
+      logo: "/images/companies/mellow-fellow.jpeg",
       quote: `“Lorem ipsum dolor sit amet, consectetur sadipscing elitr,
       sed diam nonumy eirmod tempor invidunt ut labore et
       dolore magna aliquyam erat, sed diam voluptua. At
@@ -31,7 +31,7 @@ export default function Testimonials() {
     },
     {
       id: "3",
-      logo: "/images/lost8s.png",
+      logo: "/images/companies/lost8s.png",
       quote: `“Lorem ipsum dolor sit amet, consectetur sadipscing elitr,
       sed diam nonumy eirmod tempor invidunt ut labore et
       dolore magna aliquyam erat, sed diam voluptua.”`,
@@ -39,7 +39,7 @@ export default function Testimonials() {
     },
     {
       id: "4",
-      logo: "/images/lost8s.png",
+      logo: "/images/companies/mellow-fellow.jpeg",
       quote: `“Lorem ipsum dolor sit amet, consectetur sadipscing elitr,
       sed diam nonumy eirmod tempor invidunt ut labore et
       dolore magna aliquyam erat, sed diam voluptua.”`,
@@ -71,7 +71,7 @@ export default function Testimonials() {
                   items-center
                 "
               >
-                <div className="shrink-0 w-20 h-20 rounded-full overflow-hidden">
+                <div className="bg-white p-3 shrink-0 w-20 h-20 rounded-full overflow-hidden">
                   <Image
                     src={t.logo}
                     alt="Logo"
