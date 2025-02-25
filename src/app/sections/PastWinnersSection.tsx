@@ -49,21 +49,25 @@ export default function PastWinnersSection() {
         <div className="flex items-center justify-center mt-2">
           <div className="h-[2px] w-16 bg-gradientGold" />
           <span className="inline-block mx-2 text-transparent bg-clip-text bg-gradientGold text-lg md:text-xl font-bold uppercase">
-            {winnersData[openIndex].event_name}
+            {winnersData[openIndex].event_name +
+              " " +
+              winnersData[openIndex].year}
           </span>
           <div className="h-[2px] w-16 bg-gradientGold" />
         </div>
       </div>
 
       {/* Winner Card */}
-      <div className="mx-auto max-w-5xl mt-12 p-[14px] bg-white/10 backdrop-blur-sm rounded-[25px] flex flex-col md:flex-row items-center gap-16 bg-[url('/images/general/pinksmoke-bg.png')] bg-no-repeat bg-cover bg-center relative">
+      <div className="mx-auto max-w-5xl mt-12 p-[14px] backdrop-blur-sm rounded-[25px] flex flex-col md:flex-row items-center gap-16 bg-[url('/images/general/pinksmoke-bg.png')] bg-no-repeat bg-cover bg-center relative">
         <div className="w-full md:w-1/2 flex justify-center relative">
           <Image
-            src={currentCategory.image_url ?? "/images/companies/vapes.png"}
+            src={
+              currentCategory.image_url ?? "/images/general/not-available.png"
+            }
             alt={currentCategory.winner_name}
             width={500}
             height={300}
-            className="rounded-[25px] object-cover w-[500px] h-[300px]"
+            className="rounded-[25px] bg-white  object-cover w-[500px] h-[300px]"
           />
 
           <div className="absolute top-[-10%] md:top-[20%] md:left-[90%] lg:left-[90%] w-[100px] h-[100px] bg-white rounded-full flex items-center justify-center shadow-lg">
