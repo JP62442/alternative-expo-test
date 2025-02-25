@@ -56,22 +56,22 @@ export default function PastWinnersSection() {
       </div>
 
       {/* Winner Card */}
-      <div className="mx-auto max-w-5xl mt-12 p-6 bg-white/10 backdrop-blur-sm rounded-[25px] flex flex-col md:flex-row items-center gap-16 bg-[url('/images/general/pinksmoke-bg.png')] bg-no-repeat bg-cover bg-center relative">
+      <div className="mx-auto max-w-5xl mt-12 p-[14px] bg-white/10 backdrop-blur-sm rounded-[25px] flex flex-col md:flex-row items-center gap-16 bg-[url('/images/general/pinksmoke-bg.png')] bg-no-repeat bg-cover bg-center relative">
         <div className="w-full md:w-1/2 flex justify-center relative">
           <Image
             src={currentCategory.image_url ?? "/images/companies/vapes.png"}
             alt={currentCategory.winner_name}
             width={500}
             height={300}
-            className="rounded-md object-cover w-[500px] h-[300px]"
+            className="rounded-[25px] object-cover w-[500px] h-[300px]"
           />
 
-          <div className="absolute top-[-10%] md:top-[20%] md:left-[90%] lg:left-[90%] w-[90px] h-[90px] bg-white rounded-full flex items-center justify-center shadow-lg">
+          <div className="absolute top-[-10%] md:top-[20%] md:left-[90%] lg:left-[90%] w-[100px] h-[100px] bg-white rounded-full flex items-center justify-center shadow-lg">
             <Image
               src={currentCategory.logo_url ?? "/images/companies/lost8s.png"}
               alt={`${currentCategory.winner_name} Logo`}
-              width={80}
-              height={80}
+              width={100}
+              height={100}
               className="rounded-full object-contain w-[70px] h-[70px]"
             />
           </div>
