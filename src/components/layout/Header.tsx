@@ -39,7 +39,7 @@ export default function Header() {
               />
             ))}
 
-            <Link href="#register">
+            <Link href="/register">
               <MainBtn variant="primaryHover">REGISTER</MainBtn>
             </Link>
           </nav>
@@ -106,7 +106,7 @@ export default function Header() {
             </nav>
 
             <div className="p-4">
-              <Link href="#register">
+              <Link href="/register">
                 <MainBtn variant="primaryHover">REGISTER</MainBtn>
               </Link>
             </div>
