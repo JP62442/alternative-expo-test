@@ -7,6 +7,16 @@ const SUPABASE_ANON_KEY: string =
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
+interface WinnerRow {
+  year: number;
+  event_name: string;
+  category_name: string;
+  winner_name: string;
+  image_url?: string;
+  logo_url?: string;
+  product_url?: string;
+}
+
 interface WinnerCategory {
   category_name: string;
   winner_name: string;
@@ -21,7 +31,7 @@ interface EventData {
   categories: WinnerCategory[];
 }
 
-function groupWinnersByEvent(data: any[]): EventData[] {
+function groupWinnersByEvent(data: WinnerRow[]): EventData[] {
   const groupedMap = new Map<string, EventData>();
 
   data.forEach((row) => {
@@ -62,8 +72,9 @@ export function useWinners(): EventData[] {
         console.error("Error fetching winners:", error);
         return;
       }
-
-      setWinners(groupWinnersByEvent(data));
+      if (data) {
+        setWinners(groupWinnersByEvent(data));
+      }
     }
 
     fetchWinners();
