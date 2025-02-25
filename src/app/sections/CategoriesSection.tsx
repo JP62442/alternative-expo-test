@@ -2,9 +2,10 @@
 
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, A11y } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/a11y";
 
 interface CategoriesSectionProps {
   readonly halfVideoHeight: number;
@@ -70,15 +71,13 @@ export default function CategoriesSection({
 
   return (
     <section
+      id="categories"
       className="relative text-white pt-0 pb-16 px-4"
       style={{ marginTop: -halfVideoHeight }}
     >
       <div className="mx-auto max-w-7xl">
         <div
-          className="
-            border border-white/20 bg-white/5 backdrop-blur-sm
-            rounded-[29px] p-8 text-center
-          "
+          className="border border-white/20 bg-white/5 backdrop-blur-sm rounded-[29px] p-8 text-center"
           style={{ paddingTop: halfVideoHeight * 1.25 }}
         >
           <h2 className="font-anton text-3xl md:text-4xl font-bold uppercase mb-8">
@@ -94,7 +93,11 @@ export default function CategoriesSection({
                 640: { slidesPerView: 3 },
                 768: { slidesPerView: 4 },
               }}
-              modules={[Navigation]}
+              modules={[Navigation, A11y]}
+              a11y={{
+                prevSlideMessage: "Previous slide",
+                nextSlideMessage: "Next slide",
+              }}
               className="w-full"
             >
               {categories.map((cat) => (
@@ -109,32 +112,79 @@ export default function CategoriesSection({
                     height={88}
                     className="mb-2"
                   />
-                  <p className="font-bold text-sm md:text-base max-w-[140px]">
-                    {cat.label}
-                  </p>
+                  {cat.label === "Best Booth" ? (
+                    <p className="font-bold text-sm md:text-base max-w-[140px] text-white/60">
+                      {cat.label}
+                      <span className="block text-xs font-normal text-white/60">
+                        *Selected onsite by public vote
+                      </span>
+                    </p>
+                  ) : (
+                    <p className="font-bold text-sm md:text-base max-w-[140px]">
+                      {cat.label}
+                    </p>
+                  )}
                 </SwiperSlide>
               ))}
             </Swiper>
           </div>
-
-          <div className="hidden lg:grid grid-cols-6 gap-6 mt-4">
-            {categories.map((cat) => (
-              <div
-                key={cat.label}
-                className="flex flex-col items-center text-center"
-              >
-                <Image
-                  src={cat.icon}
-                  alt={cat.label}
-                  width={88}
-                  height={88}
-                  className="mb-2"
-                />
-                <p className="font-bold text-sm md:text-base max-w-[140px]">
-                  {cat.label}
-                </p>
-              </div>
-            ))}
+          <div className="hidden lg:block mt-4">
+            <div className="grid grid-cols-7 gap-6 place-items-center">
+              {categories.slice(0, 7).map((cat) => (
+                <div
+                  key={cat.label}
+                  className="flex flex-col items-center text-center"
+                >
+                  <Image
+                    src={cat.icon}
+                    alt={cat.label}
+                    width={88}
+                    height={88}
+                    className="mb-2"
+                  />
+                  {cat.label === "Best Booth" ? (
+                    <p className="font-bold text-sm md:text-base max-w-[140px] text-white/60">
+                      {cat.label}
+                      <span className="block text-xs font-normal text-white/60">
+                        *Selected onsite by public vote
+                      </span>
+                    </p>
+                  ) : (
+                    <p className="font-bold text-sm md:text-base max-w-[140px]">
+                      {cat.label}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+            <div className="grid grid-cols-6 gap-6 place-items-center mt-6">
+              {categories.slice(7).map((cat) => (
+                <div
+                  key={cat.label}
+                  className="flex flex-col items-center text-center"
+                >
+                  <Image
+                    src={cat.icon}
+                    alt={cat.label}
+                    width={88}
+                    height={88}
+                    className="mb-2"
+                  />
+                  {cat.label === "Best Booth" ? (
+                    <p className="font-bold text-sm md:text-base max-w-[140px] text-white/60">
+                      {cat.label}
+                      <span className="block text-xs font-normal text-white/60">
+                        *Selected onsite by public vote
+                      </span>
+                    </p>
+                  ) : (
+                    <p className="font-bold text-sm md:text-base max-w-[140px]">
+                      {cat.label}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

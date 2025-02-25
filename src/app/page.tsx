@@ -36,6 +36,7 @@ export default function Home() {
       <div className="relative z-10">
         <HeroSection />
       </div>
+      <div id="navigate-page"></div>
       <div className="relative z-20 -mt-[100px]">
         <div className="absolute top-[100px] inset-0 pointer-events-none shadow-[0_-100px_100px_#10151d]"></div>
         <CardsSection scrollToPastWinners={scrollToPastWinners} />
@@ -45,13 +46,7 @@ export default function Home() {
 
       <div
         id="sec-bg"
-        className="
-          relative
-          bg-[url('/images/general/sec-bg.png')]
-          bg-no-repeat
-          bg-cover
-          bg-top
-        "
+        className="relative bg-[url('/images/general/sec-bg.png')] bg-no-repeat bg-cover bg-top"
       >
         <CategoriesSection halfVideoHeight={videoHeight / 2} />
         <div ref={pastWinnersRef}>

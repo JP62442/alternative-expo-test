@@ -5,6 +5,7 @@ import { ButtonVariant } from "@/types/types";
 import MainBtn from "@/components/buttons/mainBtn/MainBtn";
 
 type FeatureCardProps = {
+  id?: string;
   title: string;
   description: string;
   buttonLabel: string;
@@ -20,9 +21,11 @@ const FeatureCard: FC<FeatureCardProps> = ({
   buttonVariant,
   onClick,
   showArrow = true,
+  id,
 }) => {
   return (
     <div
+      id={id}
       className="
         bg-white/5
         backdrop-blur-lg
