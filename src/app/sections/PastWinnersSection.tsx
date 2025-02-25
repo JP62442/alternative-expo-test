@@ -93,7 +93,7 @@ export default function PastWinnersSection() {
             <Link
               scroll={false}
               target="_blank"
-              href={currentCategory.product_url ?? "#"}
+              href={currentCategory.product_url ?? "/not-found"}
             >
               <MainBtn variant="gold">VIEW WINNER</MainBtn>
             </Link>
