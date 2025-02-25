@@ -93,3 +93,9 @@ body {
 .swiper-pagination-bullet-active {
   background: var(--alt-blue) !important;
 }
+
+.swiper-pagination-bullet {
+  width: 16px !important;
+  height: 16px !important;
+  margin: 25px !important;
+}
