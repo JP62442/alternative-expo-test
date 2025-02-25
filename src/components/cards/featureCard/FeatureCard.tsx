@@ -83,4 +83,6 @@ const FeatureCard: FC<FeatureCardProps> = memo(
   }
 );
 
+FeatureCard.displayName = "FeatureCard";
+
 export default FeatureCard;
