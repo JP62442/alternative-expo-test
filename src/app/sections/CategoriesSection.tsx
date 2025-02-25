@@ -2,9 +2,10 @@
 
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, A11y } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/a11y";
 
 interface CategoriesSectionProps {
   readonly halfVideoHeight: number;
@@ -75,10 +76,7 @@ export default function CategoriesSection({
     >
       <div className="mx-auto max-w-7xl">
         <div
-          className="
-            border border-white/20 bg-white/5 backdrop-blur-sm
-            rounded-[29px] p-8 text-center
-          "
+          className="border border-white/20 bg-white/5 backdrop-blur-sm rounded-[29px] p-8 text-center"
           style={{ paddingTop: halfVideoHeight * 1.25 }}
         >
           <h2 className="font-anton text-3xl md:text-4xl font-bold uppercase mb-8">
@@ -94,7 +92,11 @@ export default function CategoriesSection({
                 640: { slidesPerView: 3 },
                 768: { slidesPerView: 4 },
               }}
-              modules={[Navigation]}
+              modules={[Navigation, A11y]}
+              a11y={{
+                prevSlideMessage: "Previous slide",
+                nextSlideMessage: "Next slide",
+              }}
               className="w-full"
             >
               {categories.map((cat) => (
