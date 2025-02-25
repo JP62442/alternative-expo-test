@@ -51,6 +51,7 @@ export default function PastWinnersSection() {
 
   return (
     <section
+      id="past-winners"
       className="text-white py-16 px-4"
       aria-labelledby="past-winners-title"
     >

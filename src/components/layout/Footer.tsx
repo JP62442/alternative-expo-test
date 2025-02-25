@@ -70,18 +70,18 @@ export default function Footer() {
           <div className="md:w-1/3 text-center md:text-center content-center">
             <div className="flex flex-col space-y-2 text-sm md:items-center">
               <Link
-                href="#privacy-policy"
+                href="/privacy-policy"
                 className="footer-link hover:text-gray-300"
               >
                 Privacy Policy
               </Link>
               <Link
-                href="#terms-conditions"
+                href="/terms-conditions"
                 className="footer-link hover:text-gray-300"
               >
                 Terms & Conditions (Attendees / Exhibitors)
               </Link>
-              <Link href="#notice" className="footer-link hover:text-gray-300">
+              <Link href="/notice" className="footer-link hover:text-gray-300">
                 Notice of Filming & Photography
               </Link>
             </div>

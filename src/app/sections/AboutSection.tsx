@@ -6,7 +6,11 @@ const AboutSection = forwardRef<
   { videoRef: React.Ref<HTMLDivElement> }
 >(function AboutSection({ videoRef }, ref) {
   return (
-    <section ref={ref} className="relative text-white pt-16 pb-0 px-4 z-20">
+    <section
+      id="about"
+      ref={ref}
+      className="relative text-white pt-16 pb-0 px-4 z-20"
+    >
       <div className="mx-auto max-w-5xl">
         <div className="flex items-center justify-center mb-8">
           <h2 className="font-anton -rotate-90 text-3xl md:text-4xl font-bold uppercase">

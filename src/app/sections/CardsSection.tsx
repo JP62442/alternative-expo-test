@@ -5,6 +5,7 @@ import FeatureCard from "@/components/cards/featureCard/FeatureCard";
 import { ButtonVariant } from "@/types/types";
 
 type CardData = {
+  id?: string;
   title: string;
   description: string;
   buttonLabel: string;
@@ -24,6 +25,7 @@ export default function CardsSection({
 
   const cardsData: CardData[] = [
     {
+      id: "nominate",
       title: "NOMINATE",
       description:
         "It all starts with a nomination. Simply pick your favorite brand from the list and make them eligible to win an award!",
@@ -34,6 +36,7 @@ export default function CardsSection({
       },
     },
     {
+      id: "vote",
       title: "VOTE",
       description:
         "Your vote decides the winners. There are no judges, the nominee with the most valid votes takes home the trophy!",
@@ -57,6 +60,7 @@ export default function CardsSection({
       <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
         {cardsData.map((card) => (
           <FeatureCard
+            id={card.id}
             key={card.title}
             title={card.title}
             description={card.description}

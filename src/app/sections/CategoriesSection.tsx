@@ -71,6 +71,7 @@ export default function CategoriesSection({
 
   return (
     <section
+      id="categories"
       className="relative text-white pt-0 pb-16 px-4"
       style={{ marginTop: -halfVideoHeight }}
     >

@@ -48,7 +48,7 @@ export default function Testimonials() {
   ];
 
   return (
-    <section className="bg-altMagenta text-white py-16">
+    <section id="testimonials" className="bg-altMagenta text-white py-16">
       <div className="mx-auto px-4">
         <h2 className="font-anton text-3xl md:text-4xl font-bold uppercase text-center mb-8">
           TESTIMONIALS THAT PROVE OUR VALUE
