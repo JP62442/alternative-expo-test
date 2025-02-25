@@ -49,6 +49,8 @@ export default function Header() {
             type="button"
             className="block lg:hidden"
             onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            title={isOpen ? "Close menu" : "Open menu"}
           >
             <svg
               className="h-6 w-6 text-altBlue"
@@ -56,6 +58,7 @@ export default function Header() {
               stroke="currentColor"
               strokeWidth="2"
               viewBox="0 0 24 24"
+              aria-hidden="true"
             >
               <path
                 strokeLinecap="round"
