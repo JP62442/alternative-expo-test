@@ -22,12 +22,13 @@ export default function Header() {
                 alt="Alternative Products Expo"
                 width={240}
                 height={50}
+                className="min-w-[200px] min-h-[40px]"
               />
             </Link>
           </div>
 
           {/* Menu Desktop */}
-          <nav className="hidden items-center text-altBlue space-x-6 md:flex">
+          <nav className="hidden items-center text-altBlue space-x-6 lg:flex">
             {menuData.map((menu) => (
               <DropdownMenu
                 key={menu.label}
@@ -44,7 +45,7 @@ export default function Header() {
           {/* Btn menu*/}
           <button
             type="button"
-            className="block md:hidden"
+            className="block lg:hidden"
             onClick={() => setIsOpen(!isOpen)}
           >
             <svg
