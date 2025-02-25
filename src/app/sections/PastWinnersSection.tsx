@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import MainBtn from "@/components/buttons/mainBtn/MainBtn";
@@ -39,7 +38,6 @@ export default function PastWinnersSection() {
           ? nextIndex
           : 0;
       });
-
       setTimeout(() => {
         setIsAnimating(false);
       }, 300);
@@ -62,13 +60,10 @@ export default function PastWinnersSection() {
         >
           PAST WINNERS
         </h2>
-
         <div className="flex items-center justify-center mt-2">
           <div className="h-[2px] w-16 bg-gradientGold" />
           <span className="inline-block mx-2 text-transparent bg-clip-text bg-gradientGold text-lg md:text-xl font-bold uppercase">
-            {winnersData[openIndex].event_name +
-              " " +
-              winnersData[openIndex].year}
+            {winnersData[openIndex].event_name} {winnersData[openIndex].year}
           </span>
           <div className="h-[2px] w-16 bg-gradientGold" />
         </div>
@@ -76,7 +71,6 @@ export default function PastWinnersSection() {
 
       <div
         className="mx-auto max-w-5xl mt-12 p-[14px] backdrop-blur-sm rounded-[25px] flex flex-col md:flex-row items-center gap-16 bg-[url('/images/general/pinksmoke-bg.png')] bg-no-repeat bg-cover bg-center relative"
-        aria-labelledby="past-winners-title"
         aria-live="polite"
       >
         <div
@@ -95,7 +89,6 @@ export default function PastWinnersSection() {
             height={300}
             className="rounded-[25px] bg-white object-cover w-[500px] h-[300px]"
           />
-
           <div className="absolute top-[-10%] md:top-[20%] md:left-[90%] lg:left-[90%] w-[100px] h-[100px] bg-white rounded-full flex items-center justify-center shadow-lg">
             <Image
               src={
@@ -109,7 +102,7 @@ export default function PastWinnersSection() {
           </div>
         </div>
 
-        <div className={`w-full md:w-1/2 text-center md:text-left `}>
+        <div className="w-full md:w-1/2 text-center md:text-left">
           <div
             className={`transition-transform duration-500 ${
               isAnimating
@@ -124,7 +117,6 @@ export default function PastWinnersSection() {
               {currentCategory.winner_name}
             </p>
           </div>
-
           <div className="mt-6 flex flex-col md:flex-row gap-4 justify-center md:justify-start">
             <Link
               scroll={false}
@@ -145,7 +137,11 @@ export default function PastWinnersSection() {
       </div>
 
       <div className="mx-auto max-w-5xl mt-12 flex flex-col md:flex-row gap-8">
-        <div className="w-full md:w-1/3">
+        <div
+          className="w-full md:w-1/3"
+          role="tablist"
+          aria-label="Past Events"
+        >
           {winnersData.map((event, index) => {
             const isOpen = openIndex === index;
             return (
@@ -165,11 +161,16 @@ export default function PastWinnersSection() {
                 }
                 aria-expanded={isOpen}
                 aria-controls={`event-${index}`}
+                role="tab"
+                aria-selected={isOpen}
+                aria-label={`Toggle ${event.event_name} ${event.year}`}
               >
                 <span className="uppercase">
-                  {event.event_name + " " + event.year}
+                  {event.event_name} {event.year}
                 </span>
-                <span className="text-2xl">{isOpen ? "-" : "+"}</span>
+                <span className="text-2xl" aria-hidden="true">
+                  {isOpen ? "-" : "+"}
+                </span>
               </button>
             );
           })}
@@ -178,27 +179,49 @@ export default function PastWinnersSection() {
         <section
           id={`event-${openIndex}`}
           className="w-full md:w-2/3"
-          aria-labelledby="past-winners-title"
+          role="tabpanel"
+          tabIndex={0}
+          aria-labelledby={`tab-${openIndex}`}
         >
           {openIndex != null && (
-            <div className="space-y-2">
-              {winnersData[openIndex].categories.map((cat, index) => (
-                <div
-                  key={cat.category_name + cat.winner_name}
-                  className={`grid grid-cols-2 items-center text-center gap-x-4 text-sm md:text-base p-2 rounded ${
-                    index === currentCategoryIndex ? "bg-white/5" : ""
-                  }`}
-                  aria-selected={index === currentCategoryIndex}
-                >
-                  <span className="font-extrabold text-end">
-                    {cat.category_name}
-                  </span>
-                  <span className="font-medium text-start">
-                    {cat.winner_name}
-                  </span>
-                </div>
-              ))}
-            </div>
+            <table
+              className="w-full text-left border-collapse"
+              aria-label={`Winners of ${winnersData[openIndex].event_name} ${winnersData[openIndex].year}`}
+            >
+              <thead>
+                <tr className="border-b">
+                  <th className="p-2 font-extrabold text-end" scope="col">
+                    Category
+                  </th>
+                  <th className="p-2 font-extrabold text-start" scope="col">
+                    Winner
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {winnersData[openIndex].categories.map((cat, index) => (
+                  <tr
+                    key={cat.category_name + cat.winner_name}
+                    className={`p-2 rounded ${
+                      index === currentCategoryIndex ? "bg-white/5" : ""
+                    }`}
+                  >
+                    <td
+                      className="p-2 font-extrabold text-end"
+                      aria-selected={index === currentCategoryIndex}
+                    >
+                      {cat.category_name}
+                    </td>
+                    <td
+                      className="p-2 font-medium text-start"
+                      aria-selected={index === currentCategoryIndex}
+                    >
+                      {cat.winner_name}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           )}
         </section>
       </div>
