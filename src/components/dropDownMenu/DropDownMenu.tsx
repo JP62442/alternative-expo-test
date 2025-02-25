@@ -59,7 +59,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ label, items }) => {
         className="
           inline-flex items-center
           text-sm font-medium uppercase
-          text-gray-800 
+          text-altBlue
           hover:text-gray-900
         "
         onClick={toggleMenu}
