@@ -112,32 +112,79 @@ export default function CategoriesSection({
                     height={88}
                     className="mb-2"
                   />
-                  <p className="font-bold text-sm md:text-base max-w-[140px]">
-                    {cat.label}
-                  </p>
+                  {cat.label === "Best Booth" ? (
+                    <p className="font-bold text-sm md:text-base max-w-[140px] text-white/60">
+                      {cat.label}
+                      <span className="block text-xs font-normal text-white/60">
+                        *Selected onsite by public vote
+                      </span>
+                    </p>
+                  ) : (
+                    <p className="font-bold text-sm md:text-base max-w-[140px]">
+                      {cat.label}
+                    </p>
+                  )}
                 </SwiperSlide>
               ))}
             </Swiper>
           </div>
-
-          <div className="hidden lg:grid grid-cols-6 gap-6 mt-4">
-            {categories.map((cat) => (
-              <div
-                key={cat.label}
-                className="flex flex-col items-center text-center"
-              >
-                <Image
-                  src={cat.icon}
-                  alt={cat.label}
-                  width={88}
-                  height={88}
-                  className="mb-2"
-                />
-                <p className="font-bold text-sm md:text-base max-w-[140px]">
-                  {cat.label}
-                </p>
-              </div>
-            ))}
+          <div className="hidden lg:block mt-4">
+            <div className="grid grid-cols-7 gap-6 place-items-center">
+              {categories.slice(0, 7).map((cat) => (
+                <div
+                  key={cat.label}
+                  className="flex flex-col items-center text-center"
+                >
+                  <Image
+                    src={cat.icon}
+                    alt={cat.label}
+                    width={88}
+                    height={88}
+                    className="mb-2"
+                  />
+                  {cat.label === "Best Booth" ? (
+                    <p className="font-bold text-sm md:text-base max-w-[140px] text-white/60">
+                      {cat.label}
+                      <span className="block text-xs font-normal text-white/60">
+                        *Selected onsite by public vote
+                      </span>
+                    </p>
+                  ) : (
+                    <p className="font-bold text-sm md:text-base max-w-[140px]">
+                      {cat.label}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+            <div className="grid grid-cols-6 gap-6 place-items-center mt-6">
+              {categories.slice(7).map((cat) => (
+                <div
+                  key={cat.label}
+                  className="flex flex-col items-center text-center"
+                >
+                  <Image
+                    src={cat.icon}
+                    alt={cat.label}
+                    width={88}
+                    height={88}
+                    className="mb-2"
+                  />
+                  {cat.label === "Best Booth" ? (
+                    <p className="font-bold text-sm md:text-base max-w-[140px] text-white/60">
+                      {cat.label}
+                      <span className="block text-xs font-normal text-white/60">
+                        *Selected onsite by public vote
+                      </span>
+                    </p>
+                  ) : (
+                    <p className="font-bold text-sm md:text-base max-w-[140px]">
+                      {cat.label}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
