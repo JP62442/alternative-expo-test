@@ -8,10 +8,10 @@ import PastWinnersSection from "./sections/PastWinnersSection";
 
 export default function Home() {
   const videoRef = useRef<HTMLDivElement>(null);
+  const pastWinnersRef = useRef<HTMLDivElement>(null);
   const [videoHeight, setVideoHeight] = useState(0);
 
   useEffect(() => {
-    // Function to measure the video container’s height
     function updateHeight() {
       if (videoRef.current) {
         setVideoHeight(videoRef.current.offsetHeight);
@@ -25,6 +25,12 @@ export default function Home() {
     };
   }, []);
 
+  function scrollToPastWinners() {
+    if (pastWinnersRef.current) {
+      pastWinnersRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
   return (
     <div className="relative">
       <div className="relative z-10">
@@ -32,7 +38,7 @@ export default function Home() {
       </div>
       <div className="relative z-20 -mt-[100px]">
         <div className="absolute top-[100px] inset-0 pointer-events-none shadow-[0_-100px_100px_#10151d]"></div>
-        <CardsSection />
+        <CardsSection scrollToPastWinners={scrollToPastWinners} />
       </div>
 
       <AboutSection videoRef={videoRef} />
@@ -48,7 +54,9 @@ export default function Home() {
         "
       >
         <CategoriesSection halfVideoHeight={videoHeight / 2} />
-        <PastWinnersSection />
+        <div ref={pastWinnersRef}>
+          <PastWinnersSection />
+        </div>
       </div>
     </div>
   );
