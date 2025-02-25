@@ -41,9 +41,9 @@ const FeatureCard: FC<FeatureCardProps> = ({
       "
     >
       <div>
-        <h3 className="text-2xl font-extrabold mb-3 uppercase tracking-wide">
+        <h2 className="text-2xl font-extrabold mb-3 uppercase tracking-wide">
           {title}
-        </h3>
+        </h2>
         <p className="font-medium text-sm leading-relaxed opacity-80">
           {description}
         </p>
