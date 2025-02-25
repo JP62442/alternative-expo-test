@@ -116,10 +116,10 @@ export default function Header() {
           </div>
         </div>
       )}
-      <div className="relative hidden md:block border-t border-gray-200 bg-altMagenta opacity-80 backdrop-blur-[30px] backdrop-brightness-[1.15] -z-10">
+      <div className="relative hidden md:block border-t border-gray-200 bg-altMagenta -z-10">
         <SubMenuDesktop />
       </div>
-      <div className="relative md:hidden border-t border-gray-200 bg-altMagenta opacity-80 backdrop-blur-[30px] backdrop-brightness-[1.15]">
+      <div className="relative md:hidden border-t border-gray-200 bg-altMagenta">
         <SubMenuMobile />
       </div>
     </header>
