@@ -149,7 +149,7 @@ export default function PastWinnersSection() {
                 key={event.event_name + event.year}
                 onClick={() => handleToggle(index)}
                 className={`font-extrabold h-[60px] w-full mb-2 p-4 rounded-lg flex items-center justify-between cursor-pointer transition-colors ${
-                  isOpen ? "bg-[#A89E51]" : ""
+                  isOpen ? "bg-[#A89E51]/50" : ""
                 }`}
                 style={
                   !isOpen
@@ -184,19 +184,9 @@ export default function PastWinnersSection() {
         >
           {openIndex != null && (
             <table
-              className="w-full text-left border-collapse"
+              className="w-full border-collapse"
               aria-label={`Winners of ${winnersData[openIndex].event_name} ${winnersData[openIndex].year}`}
             >
-              <thead>
-                <tr className="border-b">
-                  <th className="p-2 font-extrabold text-end" scope="col">
-                    Category
-                  </th>
-                  <th className="p-2 font-extrabold text-start" scope="col">
-                    Winner
-                  </th>
-                </tr>
-              </thead>
               <tbody>
                 {winnersData[openIndex].categories.map((cat, index) => (
                   <tr
@@ -206,10 +196,10 @@ export default function PastWinnersSection() {
                     }`}
                     aria-selected={index === currentCategoryIndex}
                   >
-                    <td className="p-2 font-extrabold text-end">
+                    <td className="p-2 font-extrabold text-end w-1/2">
                       {cat.category_name}
                     </td>
-                    <td className="p-2 font-medium text-start">
+                    <td className="p-2 font-medium text-start w-1/2">
                       {cat.winner_name}
                     </td>
                   </tr>
