@@ -204,17 +204,12 @@ export default function PastWinnersSection() {
                     className={`p-2 rounded ${
                       index === currentCategoryIndex ? "bg-white/5" : ""
                     }`}
+                    aria-selected={index === currentCategoryIndex}
                   >
-                    <td
-                      className="p-2 font-extrabold text-end"
-                      aria-selected={index === currentCategoryIndex}
-                    >
+                    <td className="p-2 font-extrabold text-end">
                       {cat.category_name}
                     </td>
-                    <td
-                      className="p-2 font-medium text-start"
-                      aria-selected={index === currentCategoryIndex}
-                    >
+                    <td className="p-2 font-medium text-start">
                       {cat.winner_name}
                     </td>
                   </tr>
