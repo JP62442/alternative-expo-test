@@ -26,7 +26,13 @@ The project has multiple branches, following the Git Flow convention, each with 
 
 I have stored the winners' data in a Supabase database.
 
+### LightHouse Analysis
+
 ![Image](https://github.com/user-attachments/assets/51d7d505-0fdb-4471-9432-955254dc7056)
+
+### SonarCloud Analysis
+
+![image](https://github.com/user-attachments/assets/7ec96b6a-936f-479b-8f51-9c6bc45ce7d6)
 
 ## Environment Variables
 

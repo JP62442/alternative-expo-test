@@ -16,7 +16,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 left-0 w-full z-50 bg-white/80 shadow-md">
       {!isOpen && (
-        <div className="mx-auto flex max-w-7xl items-center justify-between backdrop-blur-sm px-4 py-3 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-7xl items-center justify-between backdrop-blur-sm px-4 py-3 sm:px-6 xl:px-8">
           <div className="flex items-center">
             <Link href="/">
               <Image
@@ -30,7 +30,7 @@ export default function Header() {
           </div>
 
           {/* Menu Desktop */}
-          <nav className="hidden items-center text-altBlue space-x-6 lg:flex">
+          <nav className="hidden items-center text-altBlue space-x-6 xl:flex">
             {menuData.map((menu) => (
               <DropdownMenu
                 key={menu.label}
@@ -47,7 +47,7 @@ export default function Header() {
           {/* Btn menu*/}
           <button
             type="button"
-            className="block lg:hidden"
+            className="block xl:hidden"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
             title={isOpen ? "Close menu" : "Open menu"}
