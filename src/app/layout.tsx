@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Alt Pro Expo - test",
     description: "Created By Juan Pablo Cardona Duque",
-    url: "https://altproexpo.com",
+    url: "https://alternative-expo-test.vercel.app",
     type: "website",
     images: ["icons/general/favicon-150x150.png"],
   },
@@ -58,10 +58,13 @@ export default function RootLayout({
           content="Created By Juan Pablo Cardona Duque"
         />
         <meta property="og:image" content="icons/general/favicon-150x150.png" />
-        <meta property="og:url" content="https://altproexpo.com" />
+        <meta
+          property="og:url"
+          content="https://alternative-expo-test.vercel.app"
+        />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_US" />
-        <link rel="canonical" href="https://altproexpo.com/" />
+        <link rel="canonical" href="https://alternative-expo-test.vercel.app" />
       </head>
       <body className="antialiased">
         <Header />
