@@ -38,6 +38,7 @@ export default function Home() {
       </div>
       <div id="navigate-page"></div>
       <div className="relative z-20 -mt-[100px]">
+        <div className="absolute top-[100px] inset-0 pointer-events-none shadow-[0_-100px_100px_#10151d]"></div>
         <CardsSection scrollToPastWinners={scrollToPastWinners} />
       </div>
 

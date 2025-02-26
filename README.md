@@ -28,7 +28,7 @@ I have stored the winners' data in a Supabase database.
 
 ### LightHouse Analysis
 
-![Image](https://github.com/user-attachments/assets/34b1bad8-2e74-4e0b-a02a-9b6e333150c1)
+![Image](https://github.com/user-attachments/assets/51d7d505-0fdb-4471-9432-955254dc7056)
 
 ### SonarCloud Analysis
 

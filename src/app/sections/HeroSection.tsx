@@ -7,7 +7,7 @@ import excellenceAwards from "../../../public/images/excellenceAwards/awards-log
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full min-h-screen flex flex-col before:absolute before:-bottom-10 before:left-0 before:w-full before:h-[150px] before:bg-gradient-to-t before:from-[#10151d] before:to-transparent before:pointer-events-none">
+    <section className="relative w-full min-h-screen flex flex-col">
       <div className="absolute inset-0 md:hidden -z-10 min-h-[600px]">
         <Image
           src={heroBgMobile}
