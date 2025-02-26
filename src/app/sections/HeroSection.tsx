@@ -8,7 +8,7 @@ import excellenceAwards from "../../../public/images/excellenceAwards/awards-log
 export default function HeroSection() {
   return (
     <section className="relative w-full min-h-screen flex flex-col">
-      <div className="absolute inset-0 md:hidden -z-10">
+      <div className="absolute inset-0 md:hidden -z-10 min-h-[600px]">
         <Image
           src={heroBgMobile}
           alt="Hero background mobile"
@@ -18,7 +18,7 @@ export default function HeroSection() {
         />
       </div>
 
-      <div className="absolute inset-0 hidden md:block -z-10">
+      <div className="absolute inset-0 hidden md:block -z-10 min-h-[800px]">
         <Image
           src={heroBgDesktop}
           alt="Hero background desktop"
