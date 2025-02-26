@@ -180,7 +180,6 @@ export default function PastWinnersSection() {
           id={`event-${openIndex}`}
           className="w-full md:w-2/3"
           role="tabpanel"
-          tabIndex={0}
           aria-labelledby={`tab-${openIndex}`}
         >
           {openIndex != null && (

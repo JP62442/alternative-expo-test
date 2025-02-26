@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏆 Alt Pro Expo - Excellence Awards (Technical Test)
 
-## Getting Started
+This project is built with Next.js to manage and showcase the winners of the Excellence Awards in the alternative products industry. It follows modern technologies and best development practices to deliver a seamless and engaging user experience.
 
-First, run the development server:
+🚀 Live Demo: https://alternative-expo-test.vercel.app/
+
+Developed with Mobile-first thinking, you can open the demo from any device and browser.
+
+## Tech Stack
+
+- NextJs.
+- TypeScript.
+- Tailwind CSS.
+- Supabase.
+- Vercel.
+
+#### External Libraries
+
+- Swiper.
+- React Icons.
+- Supabase-js.
+
+## Project Deployment
+
+The project has multiple branches, following the Git Flow convention, each with a functional deployment in vercel.
+
+I have stored the winners' data in a Supabase database.
+
+![Image](https://github.com/user-attachments/assets/51d7d505-0fdb-4471-9432-955254dc7056)
+
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+`NEXT_PUBLIC_SUPABASE_ANON_KEY`
+
+`NEXT_PUBLIC_SUPABASE_URL`
+
+## Run Locally
+
+Clone the project
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+  git clone https://github.com/JP62442/alternative-expo-test.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Go to the project directory
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+  cd alternative-expo-test
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Install dependencies (I prefer to use [Bun](https://bun.sh/), but you can do it with npm)
 
-## Learn More
+```bash
+  bun install
+```
 
-To learn more about Next.js, take a look at the following resources:
+Start the server
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+  bun run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Author
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[Juan Pablo Cardona Duque](https://www.linkedin.com/in/juan-pablo-cardona-duque/)
