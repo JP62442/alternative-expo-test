@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins, Anton } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "../styles/globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -69,6 +71,8 @@ export default function RootLayout({
       <body className="antialiased">
         <Header />
         <main>{children}</main>
+        <Analytics />
+        <SpeedInsights />
         <Testimonials />
         <SubscribeForm />
         <Footer />
