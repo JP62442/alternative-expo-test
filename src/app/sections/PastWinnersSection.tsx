@@ -6,7 +6,7 @@ import { useWinners } from "@/hooks/useWinners";
 import Link from "next/link";
 
 export default function PastWinnersSection() {
-  const winnersData = useWinners();
+  const { winners: winnersData, loading, error } = useWinners();
   const [openIndex, setOpenIndex] = useState<number>(0);
   const [currentCategoryIndex, setCurrentCategoryIndex] = useState<number>(0);
   const [isAnimating, setIsAnimating] = useState<boolean>(false);
@@ -18,8 +18,72 @@ export default function PastWinnersSection() {
     }
   }, [winnersData]);
 
-  if (winnersData.length === 0) {
-    return <p className="text-white text-center">Without data now.</p>;
+  if (loading) {
+    return (
+      <section
+        id="past-winners"
+        className="text-white py-16 px-4"
+        aria-labelledby="past-winners-title"
+      >
+        <div className="mx-auto max-w-7xl text-center">
+          <h2
+            id="past-winners-title"
+            className="font-anton text-3xl md:text-4xl font-bold uppercase"
+          >
+            PAST WINNERS
+          </h2>
+          <div className="flex items-center justify-center mt-2">
+            <div className="h-[2px] w-16 bg-gradientGold" />
+            <span className="inline-block mx-2 text-transparent bg-clip-text bg-gradientGold text-lg md:text-xl font-bold uppercase">
+              Loading...
+            </span>
+            <div className="h-[2px] w-16 bg-gradientGold" />
+          </div>
+        </div>
+        <div className="mx-auto max-w-5xl mt-12 flex items-center justify-center">
+          <div className="animate-pulse space-y-4 w-full">
+            <div className="h-[300px] bg-white/10 rounded-[25px] backdrop-blur-sm" />
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (error || winnersData.length === 0) {
+    return (
+      <section
+        id="past-winners"
+        className="text-white py-16 px-4"
+        aria-labelledby="past-winners-title"
+      >
+        <div className="mx-auto max-w-7xl text-center">
+          <h2
+            id="past-winners-title"
+            className="font-anton text-3xl md:text-4xl font-bold uppercase"
+          >
+            PAST WINNERS
+          </h2>
+          <div className="flex items-center justify-center mt-2">
+            <div className="h-[2px] w-16 bg-gradientGold" />
+            <span className="inline-block mx-2 text-transparent bg-clip-text bg-gradientGold text-lg md:text-xl font-bold uppercase">
+              Coming Soon
+            </span>
+            <div className="h-[2px] w-16 bg-gradientGold" />
+          </div>
+        </div>
+        <div className="mx-auto max-w-5xl mt-12 p-[14px] backdrop-blur-sm rounded-[25px] flex flex-col items-center justify-center gap-8 bg-[url('/images/general/pinksmoke-bg.png')] bg-no-repeat bg-cover bg-center min-h-[400px]">
+          <div className="text-center space-y-4">
+            <h3 className="text-2xl md:text-3xl font-bold uppercase">
+              Winners Coming Soon
+            </h3>
+            <p className="text-lg opacity-80 max-w-md">
+              We're preparing to showcase the amazing winners. Check back soon
+              to see the award recipients!
+            </p>
+          </div>
+        </div>
+      </section>
+    );
   }
 
   function handleToggle(index: number) {

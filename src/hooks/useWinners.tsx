@@ -31,6 +31,12 @@ interface EventData {
   categories: WinnerCategory[];
 }
 
+interface UseWinnersReturn {
+  winners: EventData[];
+  loading: boolean;
+  error: boolean;
+}
+
 function groupWinnersByEvent(data: WinnerRow[]): EventData[] {
   const groupedMap = new Map<string, EventData>();
 
@@ -57,28 +63,49 @@ function groupWinnersByEvent(data: WinnerRow[]): EventData[] {
   return Array.from(groupedMap.values());
 }
 
-export function useWinners(): EventData[] {
+export function useWinners(): UseWinnersReturn {
   const [winners, setWinners] = useState<EventData[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<boolean>(false);
 
   useEffect(() => {
     async function fetchWinners() {
-      const { data, error } = await supabase
-        .from("winners")
-        .select(
-          "year, event_name, category_name, winner_name, image_url, logo_url, product_url"
-        );
+      try {
+        setLoading(true);
+        setError(false);
 
-      if (error) {
-        console.error("Error fetching winners:", error);
-        return;
-      }
-      if (data) {
-        setWinners(groupWinnersByEvent(data));
+        if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+          setError(true);
+          setLoading(false);
+          return;
+        }
+
+        const { data, error: fetchError } = await supabase
+          .from("winners")
+          .select(
+            "year, event_name, category_name, winner_name, image_url, logo_url, product_url"
+          );
+
+        if (fetchError) {
+          setError(true);
+          setWinners([]);
+        } else if (data) {
+          setWinners(groupWinnersByEvent(data));
+          setError(false);
+        } else {
+          setWinners([]);
+          setError(false);
+        }
+      } catch (err) {
+        setError(true);
+        setWinners([]);
+      } finally {
+        setLoading(false);
       }
     }
 
     fetchWinners();
   }, []);
 
-  return winners;
+  return { winners, loading, error };
 }
